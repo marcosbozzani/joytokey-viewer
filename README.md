@@ -1,5 +1,5 @@
 # joytokey-viewer
-A viewer for JoyToKey - https://joytokey.net/en/
+A joystick / gamepad viewer for JoyToKey - https://joytokey.net/en/
 
 ## Requirements
 Powershell 5+ - https://aka.ms/powershell
