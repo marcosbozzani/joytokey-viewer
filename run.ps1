@@ -3,14 +3,13 @@ param(
     [string] $name
 )
 
-if (!$env:PSHosting) {
-    $env:PSHosting = $true
-    & powershell .\run.ps1 $name $args
-    remove-item env:PSHosting
-    exit
-}
-
 try {
+    if (!$env:PSHosting) {
+        $env:PSHosting = $true
+        & powershell .\run.ps1 $name $args
+        exit
+    }
+
     $projects = @{
         joystick = @{
             defines = @(
@@ -33,6 +32,7 @@ try {
                 "positions"
                 "background"
                 "paths"
+                "title"
             )
             assemblies = @(
                 "System"
@@ -104,7 +104,6 @@ try {
     add-type -TypeDefinition $source -ReferencedAssemblies $project.assemblies -IgnoreWarnings
     $env:PSScriptRoot = $PSScriptRoot
     new-object $name @(,$args) | out-null
-    remove-item env:PSScriptRoot
 }
 catch {
     if ($_.Exception.InnerException) {
@@ -118,4 +117,8 @@ catch {
     else {
         throw
     }
+}
+finally {
+    remove-item env:PSHosting -ErrorAction Ignore
+    remove-item env:PSScriptRoot -ErrorAction Ignore
 }

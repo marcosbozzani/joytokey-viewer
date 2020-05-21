@@ -6,7 +6,7 @@ public class Joystick : Window
     private RichTextBox logViewer;
     private Panel joystickPanel;
     private PictureBox joystickBackground;
-    private Dictionary<string, Label> labels;
+    private Dictionary<string, Title> titles;
     private Dictionary<string, Setting> map;
     private Positions positions;
     private string backgroundPath;
@@ -33,7 +33,7 @@ public class Joystick : Window
         InitWindow();
         InitLogViewer();
         InitJoystickPanel();
-        InitLabels();
+        InitTitles();
         InitJoystickBackground();
         
         Printer.Print(AppendLog, map);
@@ -46,7 +46,8 @@ public class Joystick : Window
         Text = "Joystick";
         MaximizeBox = false;
         FormBorderStyle = FormBorderStyle.FixedSingle;
-        
+        Width = 900;
+
         KeyDown += (sender, e) =>
         {
             if (e.KeyCode == Keys.F4) 
@@ -88,31 +89,29 @@ public class Joystick : Window
         joystickPanel.Controls.Add(joystickBackground);
     }
 
-    private void InitLabels()
+    private void InitTitles()
     {
-        labels = new Dictionary<string, Label>();
+        titles = new Dictionary<string, Title>();
 
         foreach (var pair in map) 
         {
             var key = pair.Key;
             var value = pair.Value;
 
-            var label = new Label();
-            label.AutoSize = true;
-            label.Draggable(true);
-            label.Font = Fonts.SansSerif;
-            label.Location = positions.Get(value.Name);
-            label.Text = value.Name + ": " + value.Comment;
+            var title = new Title();
+            title.Draggable(true);            
+            title.Location = positions.Get(value.Name);
+            title.Text = Title.Format(value.Name, value.Comment);
             
-            label.MouseUp += (sender, e) =>
+            title.MouseUp += (sender, e) =>
             {
-                Log.Debug("{0} {1}", value.Name, label.Location);
-                positions.Set(value.Name, label.Location);
+                Log.Debug("{0} {1}", value.Name, title.Location);
+                positions.Set(value.Name, title.Location);
                 positions.Save();
             };
 
-            labels[key] = label;
-            joystickPanel.Controls.Add(label);
+            titles[key] = title;
+            joystickPanel.Controls.Add(title);
         }
     }
 
