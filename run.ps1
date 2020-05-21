@@ -6,7 +6,7 @@ param(
 try {
     if (!$env:PSHosting) {
         $env:PSHosting = $true
-        & powershell .\run.ps1 $name $args
+        & powershell $PSScriptRoot\run.ps1 $name $args
         exit
     }
 
@@ -98,7 +98,7 @@ try {
     }
 
     foreach ($file in $project.files) {
-        $source += "`n" + (get-content ".\sources\$file.cs" -raw) + "`n"
+        $source += "`n" + (get-content "$PSScriptRoot\sources\$file.cs" -raw) + "`n"
     }
 
     add-type -TypeDefinition $source -ReferencedAssemblies $project.assemblies -IgnoreWarnings
