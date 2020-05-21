@@ -63,6 +63,12 @@ public class Parser
                     Log.Debug("Type: {0}", type);
                     buttons = HandleKeyboard(subvalues);
                 }
+                else if (IsExecute(subvalues))
+                {
+                    type = "Execute";
+                    Log.Debug("Type: {0}", type);
+                    buttons = HandleExecute(subvalues);
+                }
                 else
                 {
                     continue;
@@ -91,6 +97,16 @@ public class Parser
     private static bool IsMouse(string[] subvalues)
     {
         return subvalues.Length == 16 && subvalues[0].Trim() == "2";
+    }
+
+    private static string[] HandleExecute(string[] subvalues)
+    {
+        return new string[0];
+    }
+
+    private static bool IsExecute(string[] subvalues)
+    {
+        return subvalues.Length > 1 && subvalues[0].Trim() == "9";
     }
 
     private static string[] HandleMouse(string[] subvalues)
