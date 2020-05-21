@@ -17,4 +17,4 @@ Powershell 5+ - https://aka.ms/powershell
 - `.\joysticks\profile.map`: buttons names
 - `.\joysticks\profile.ini`: buttons positions
 - `.\joysticks\profile.png`: background image
-- You move the buttons label texts with the mouse and they're positions are automatically persisted to `.\joysticks\profile.ini`
+- When you move the label texts with the mouse, their positions are automatically persisted to `.\joysticks\profile.ini`
