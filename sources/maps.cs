@@ -3,7 +3,7 @@ public class Maps
 {
     public static Dictionary<string, Setting> Load(string profile)
     {
-        var file = @".\joysticks\" + profile + ".map";
+        var file = Paths.GetFull(@"joysticks\" + profile + ".map");
 
         if (!File.Exists(file))
         {

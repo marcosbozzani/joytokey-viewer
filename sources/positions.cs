@@ -5,7 +5,7 @@ public class Positions
 
     public Positions(string profile)
     {
-        var file = @".\joysticks\" + profile + ".ini";
+        var file = Paths.GetFull(@"joysticks\" + profile + ".ini");
         this.file = file;
         this.pairs = new Dictionary<string, Point>();
     }

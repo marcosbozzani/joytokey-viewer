@@ -2,7 +2,7 @@ public class Background
 {
     public static string Get(string profile)
     {
-        var file = @".\joysticks\" + profile + ".png";
+        var file = Paths.GetFull(@"joysticks\" + profile + ".png");
 
         if (!File.Exists(file))
         {

@@ -32,6 +32,7 @@ try {
                 "spacing"
                 "positions"
                 "background"
+                "paths"
             )
             assemblies = @(
                 "System"
@@ -97,11 +98,13 @@ try {
     }
 
     foreach ($file in $project.files) {
-        $source += "`n" + (get-content "$file.cs" -raw) + "`n"
+        $source += "`n" + (get-content ".\sources\$file.cs" -raw) + "`n"
     }
 
     add-type -TypeDefinition $source -ReferencedAssemblies $project.assemblies -IgnoreWarnings
+    $env:PSScriptRoot = $PSScriptRoot
     new-object $name @(,$args) | out-null
+    remove-item env:PSScriptRoot
 }
 catch {
     if ($_.Exception.InnerException) {
