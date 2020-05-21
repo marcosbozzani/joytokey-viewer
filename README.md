@@ -29,3 +29,4 @@ Powershell 5+ - https://aka.ms/powershell
 - `.\joysticks\profile.ini`: buttons positions
 - `.\joysticks\profile.png`: background image
 - When you move the texts with the mouse, their positions are automatically persisted to `.\joysticks\profile.ini`
+- If you want customized text for the buttons, just set the comment column inside joytokey
