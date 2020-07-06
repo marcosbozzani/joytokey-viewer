@@ -6,7 +6,7 @@ Pull requests and Issues are welcome!
 
 If this project is useful to you, don't forget to leave a Github Star
 
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SFM2FBMG9H9RQ&currency_code=USD) *Buy me a coffee*
+You can also [Buy me a coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SFM2FBMG9H9RQ&currency_code=USD) ☕
 
 ## Screenshots
 
