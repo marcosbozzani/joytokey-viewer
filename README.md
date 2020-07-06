@@ -6,7 +6,7 @@ Pull requests and Issues are welcome!
 
 If this project is useful to you, don't forget to leave a Github Star
 
-You can also [Buy me a coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SFM2FBMG9H9RQ&currency_code=USD) ☕
+### You can also [Buy me a coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SFM2FBMG9H9RQ&currency_code=USD) ☕
 
 ## Screenshots
 
